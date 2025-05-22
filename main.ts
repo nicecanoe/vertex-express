@@ -1,12 +1,13 @@
 // main.ts
 
-// --- CORS 配置常量 和其他全局常量 ---
+// 在你的 main.ts 文件的顶部
 const allowedOriginFromEnv = Deno.env.get("ALLOWED_ORIGIN");
-const defaultAllowedOrigin = "https://yangweili-deep-research.hf.space"; // 你的前端源作为默认值
+const defaultAllowedOrigin = "https://deep-research-eight-ebon.vercel.app"; // ⬅️ 更新为这个新的源
 const allowedOrigin = allowedOriginFromEnv || defaultAllowedOrigin;
 
-const allowedMethods = "GET, POST, OPTIONS, PUT, DELETE"; // 允许的 HTTP 方法
-const allowedHeaders = "Content-Type, Authorization"; // 允许的自定义请求头
+// 其他常量保持不变
+const allowedMethods = "GET, POST, OPTIONS, PUT, DELETE";
+const allowedHeaders = "Content-Type, Authorization"; // 确保这里包含你前端实际发送的头部
 
 // --- 主要的请求处理函数 ---
 async function handler(req: Request): Promise<Response> {
